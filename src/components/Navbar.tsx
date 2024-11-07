@@ -47,6 +47,9 @@ const Navbar: React.FC = () => {
               <Button color="inherit" component={Link} to="/stockupdate">
                 Stockupdate
               </Button>
+              <Button color="inherit" component={Link} to="/sortedmedicines">
+                Medicines
+              </Button>
               <Button color="inherit" onClick={handleLogout}> {/* Update onClick to handleLogout */}
                 Logout
               </Button>

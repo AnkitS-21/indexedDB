@@ -16,7 +16,7 @@ import {
 
 const Dashboard: React.FC = () => {
   const [selectedPatient, setSelectedPatient] = useState<any>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   
   // Sample patient data
   const patients = [

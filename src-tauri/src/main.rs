@@ -2,7 +2,7 @@ mod commands;
 mod database;
 
 use tauri::{Builder, generate_handler};
-use commands::{initialize_db, insert_medicine, get_medicine, update_medicine, delete_medicine, search_medicines};
+use commands::{initialize_db, insert_medicine, get_medicine, update_medicine, delete_medicine, search_medicines, get_sorted_medicines};
 
 fn main() {
     Builder::default()
@@ -12,13 +12,10 @@ fn main() {
             get_medicine,
             update_medicine,
             delete_medicine,
-            search_medicines
+            search_medicines,
+            get_sorted_medicines
         ])
         .run(tauri::generate_context!())
         .expect("Error while running Tauri application");
 }
-
-
-
-
 

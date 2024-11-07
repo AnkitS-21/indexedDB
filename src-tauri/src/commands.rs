@@ -142,3 +142,28 @@ pub fn search_medicines(query: String, page: u32, limit: u32) -> Result<Vec<Medi
 
     Ok(medicine_info)
 }
+
+#[command]
+pub fn get_sorted_medicines() -> Result<Vec<Medicine>, String> {
+    let mut conn = get_db_connection()?;
+    
+    // Fetch sorted medicines based on expiry date
+    let medicines = conn
+        .query_map(
+            "SELECT id, name, batch_number, expiry_date, quantity, purchase_price, selling_price 
+            FROM medicines 
+            ORDER BY expiry_date ASC", // Sorting by expiry_date
+            |(id, name, batch_number, expiry_date, quantity, purchase_price, selling_price)| Medicine {
+                id,
+                name,
+                batch_number,
+                expiry_date,
+                quantity,
+                purchase_price,
+                selling_price,
+            },
+        )
+        .map_err(|e| e.to_string())?;
+
+    Ok(medicines)
+}

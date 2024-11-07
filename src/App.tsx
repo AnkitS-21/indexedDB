@@ -13,6 +13,7 @@ import { Component } from './components/History';
 import PharmacyStockUpdate from './components/StockUpdate';
 import Billing from './components/Billing';
 // import Inventory from './components/Inventory';
+import SortedMedicines from './components/SortedMedicines';
 
 // Custom festival backgrounds
 const festivalBackgrounds = {
@@ -46,6 +47,7 @@ const App: React.FC = () => {
           <Route path="/announcement" element={<AnnouncementPage/>} />
           <Route path="/stockupdate" element={<PharmacyStockUpdate/>}/>
           <Route path="/billing" element={<Billing/>}/>
+          <Route path="/sortedmedicines" element={<SortedMedicines/>}/>
         </Routes>
       </Router>
     </AuthProvider>

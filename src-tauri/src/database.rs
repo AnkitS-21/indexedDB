@@ -5,7 +5,6 @@ use std::env;
 pub fn get_db_connection() -> Result<PooledConn, String> {
     // Load the environment variables from the .env file
     dotenv().ok();
-
     // Get the DATABASE_URL from the environment variables
     let database_url = env::var("DATABASE_URL").map_err(|e| e.to_string())?;
 
